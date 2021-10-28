@@ -41,6 +41,11 @@ public class Practice5_1_3 {
                 status = STRING_MODE;//updated status
             }
         }
+        if(status==STRING_MODE){
+            scollector[sit++] = stp;
+        }else{
+            icollector[cit++] = itp;
+        }
         String[] ress = new String[sit];
         System.arraycopy(scollector,0,ress,0,sit);
         int[] resi = new int[cit];
