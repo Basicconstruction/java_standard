@@ -5,7 +5,7 @@ public class Practice5_1_3 {
     private final static int INTEGER_MODE = 2;
     public static void main(String[] args){
         String s = "a1132bdddf222vc3d4ert5t43f6g7h8";
-        String stp = "";
+        StringBuilder stp = new StringBuilder();
         int itp = 0;
         int status;
         String[] scollector = new String[1024];
@@ -16,9 +16,9 @@ public class Practice5_1_3 {
         for(char c:s.toCharArray()){
             if(isNumChar(c)){
                 if(status==STRING_MODE){   //previous status, change
-                    if(!stp.equals("")){
-                        scollector[sit++] = stp;
-                        stp = "";
+                    if(!stp.toString().equals("")){
+                        scollector[sit++] = stp.toString();
+                        stp = new StringBuilder();
                     }
                     itp += c-'0';
                 }else{
@@ -33,16 +33,16 @@ public class Practice5_1_3 {
                         icollector[cit++] = itp;
                         itp=0;
                     }
-                    stp += c;
+                    stp.append(c);
                 }else{
                     //status = STRING_MODE;
-                    stp += c;
+                    stp.append(c);
                 }
                 status = STRING_MODE;//updated status
             }
         }
         if(status==STRING_MODE){
-            scollector[sit++] = stp;
+            scollector[sit++] = stp.toString();
         }else{
             icollector[cit++] = itp;
         }
